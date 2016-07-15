@@ -46,7 +46,7 @@ angular.module('nibs.case', ['nibs.config'])
         $scope.case = {};
 
         $scope.submit = function () {
-            if($scope.case.subject!=='undefined' || $scope.case.description!=='undefined' || $scope.case.subject!=='' || $scope.case.description!==''){
+            if($scope.case.subject=='undefined' || $scope.case.description=='undefined' || $scope.case.subject!=='' || $scope.case.description!==''){
                 $ionicPopup.alert({title: 'Alert', content: 'Please enter the Subject/Description.'});
             }else{
                 Case.create($scope.case).success(function() {
