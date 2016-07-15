@@ -177,7 +177,7 @@ function login(req, res, next) {
         return res.send(401, invalidCredentials);
     }
 
-    db.query('SELECT id, firstName,mg_isformfilled__c, lastName, email,sfid,loyaltyid__c as externalUserId, password__c AS password FROM salesforce.contact WHERE email=$1', [creds.email], true)
+    db.query('SELECT id, firstName, lastName, email,sfid,loyaltyid__c as externalUserId, password__c AS password FROM salesforce.contact WHERE email=$1', [creds.email], true)
         .then(function (user) {
             if (!user) {
                 return res.send(401, invalidCredentials);
